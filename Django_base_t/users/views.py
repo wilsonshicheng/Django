@@ -16,3 +16,10 @@ class RegisterView(View):
         return http.HttpResponse('这是一个注册页面')
     def post(self,request):
         return http.HttpResponse('这是一个注册逻辑')
+
+class LoginView(View):
+    def get(self, request):
+        return http.HttpResponse('这是一个登录页面')
+
+    def post(self, request):
+        return http.HttpResponse('这是一个登录逻辑')
