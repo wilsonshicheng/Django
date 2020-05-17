@@ -29,7 +29,7 @@ urlpatterns = [
     # ****使用url方式
     # url(r'^url_param3/(?P<mobile_number>1[3-9]\d{9})/$', views.URLParamView3.as_view())
     path('response1/', views.Response1View.as_view()),
-
+    path('resp_json/', views.JsonResponseView.as_view()),
 
 
 ]

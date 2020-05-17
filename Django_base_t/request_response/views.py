@@ -105,8 +105,8 @@ class URLParamView3(View):
         print('提取的手机号码是：',mobile_number)
         return http.HttpResponse('测试re_path提取电话号码')
 
-# ===========================测试查询响应数据==========================
-
+# ===========================响应数据==========================
+# 1.HttpReponse()响应数据
 
 class Response1View(View):
 
@@ -125,6 +125,23 @@ class Response1View(View):
 
 
 
+# 2.JsonResponse()响应JSON数据
+# 需求：get:http://127.0.0.1:8000/resp_json/
+# class JsonResponseView(View):
+#     def get(self,response):
+#         dict_data = {
+#             'name':'wilson',
+#             'age':18
+#         }
+#         return http.JsonResponse(dict_data)
+
+# 扩展：JsonResponse出了默认接受字典意外，时候可以接受其他数据类型
+# return http.JsonResponse('列表数据',safe=False)
+
+class JsonResponseView(View):
+    def get(self,response):
+        list_data = ['1','2','3']
+        return http.JsonResponse(list_data,safe=False)
 
 
 
