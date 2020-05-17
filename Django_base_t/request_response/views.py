@@ -64,3 +64,46 @@ class JSONParamView(View):
         print(username,password)
 
         return http.HttpResponse('测试提取表单类型的请求体数据:JSON')
+
+# ===========================测试查询URL特定数据==========================
+# 需求1：http://127.0.0.1:8000/url_param1/18/
+# 提取路径中的数字18
+# 需求2：http://127.0.0.1:8000/url_param2/18500001111/
+# 提取路径中的手机号18500001111
+
+
+# 1.path()提取路径参数
+class URLParamView(View):
+    # 使用path提取普通参数路径
+    # 提取路径参数是在路由系统里面完成的，因为路径再路由系统进行处理。
+    def get(self,request,number):
+        # 接受路径参数number
+        # 注意点：视图内部的关键字参数必须和路由中的关键字一样。
+        print(number)
+        return http.HttpResponse('测试path（）提取普通参数路径')
+
+class URLParamView2(View):
+    # 使用path提取普通参数路径
+    # 提取路径参数是在路由系统里面完成的，因为路径再路由系统进行处理。
+    def get(self,request,phone_num):
+        # 接受路径参数number
+        # 注意点：视图内部的关键字参数必须和路由中的关键字一样。
+        print('提取的手机号码是：',phone_num)
+        return http.HttpResponse('测试path提取电话号码')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
