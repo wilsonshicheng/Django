@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from django.views import View
 from django import http
 import json
@@ -144,4 +144,21 @@ class JsonResponseView(View):
         return http.JsonResponse(list_data,safe=False)
 
 
+# 3.redirect()响应重定向数据
+# 需求：
+# 准备一个用于处理用户登录类视图LoginRedirectView
+# 访问LoginRedirectView时，如果其中的登录逻辑处理完成，我们将用户重定向到首页
 
+class IndexView(View):
+    # 需求：get:http://127.0.0.1:8000/index/
+    def get(self,request):
+        return http.HttpResponse('网站首页')
+
+
+class LoginRedirectView(View):
+    # 需求：post:http://127.0.0.1:8000/login_redirect/
+    def post(self,request):
+        # 1.处理登录逻辑
+        # 2.如果用户登录成功，将用户引导到首页（重定向）
+        return redirect('/index/')
+    # 注意点：重定向的网址需要加根路径：index/-----→/index/

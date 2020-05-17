@@ -31,6 +31,9 @@ urlpatterns = [
     path('response1/', views.Response1View.as_view()),
     path('resp_json/', views.JsonResponseView.as_view()),
 
+    # *****重定向
+    path('index/', views.IndexView.as_view()),
+    path('login_redirect/', views.IndexView.as_view()),
 
 ]
 
