@@ -6,7 +6,7 @@ import json
 
 # Create your views here.
 # ===========================测试查询字符串==========================
-class QSParmView(View):
+class QSParamView(View):
 
 
     def get(self,request):
@@ -91,8 +91,19 @@ class URLParamView2(View):
         print('提取的手机号码是：',phone_num)
         return http.HttpResponse('测试path提取电话号码')
 
+# 2.re_path()提取路径参数
+# 需求2：http://127.0.0.1:8000/url_param3/18500001111/
+# 提取路径中的手机号18500001111
 
 
+class URLParamView3(View):
+    # 使用re_path提取普通参数路径
+    # 提取路径参数是在路由系统里面完成的，因为路径再路由系统进行处理。
+    def get(self,request,mobile_number):
+        # 接受路径参数number
+        # 注意点：视图内部的关键字参数必须和路由中的关键字一样。
+        print('提取的手机号码是：',mobile_number)
+        return http.HttpResponse('测试re_path提取电话号码')
 
 
 
