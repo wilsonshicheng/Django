@@ -105,13 +105,23 @@ class URLParamView3(View):
         print('提取的手机号码是：',mobile_number)
         return http.HttpResponse('测试re_path提取电话号码')
 
+# ===========================测试查询响应数据==========================
 
 
+class Response1View(View):
 
+    def get(self,request):
+        # 需求：http://127.0.0.1:8000/response1/
+        # return http.HttpResponse(content='响应体',content_type='数据类型 默认text/html',status='状态码，默认：200')
+        # 原始状态
+        # return http.HttpResponse(content='演示HttpResponse', content_type='text/html', status=200)
+        # 简化1
+        # return http.HttpResponse(content='演示HttpResponse')
+        # 简化2
+        return http.HttpResponse('演示HttpResponse')
 
-
-
-
+# 提示：默认的情况HttpResoponse响应html字符串的，如果需要响应html字符串以外的数据，如何实现？
+#         1.HttpResponse(响应体：图片的原始数据，content_type='image/jpg')
 
 
 

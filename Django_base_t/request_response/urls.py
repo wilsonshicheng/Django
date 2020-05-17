@@ -24,6 +24,16 @@ urlpatterns = [
     # 2.如果正则匹配成功，就是用正则的组把手机号码提取出来
     # re_path(r'^url_param3/(1[3-9]\d{9})/$',views.URLParamView3.as_view())
     # 3.需要在正则的组中定义一个变量，把提取的手机号码保存起来。
-    re_path(r'^url_param3/(?P<mobile_number>1[3-9]\d{9})/$', views.URLParamView3.as_view())
+    re_path(r'^url_param3/(?P<mobile_number>1[3-9]\d{9})/$', views.URLParamView3.as_view()),
+
+    # ****使用url方式
+    # url(r'^url_param3/(?P<mobile_number>1[3-9]\d{9})/$', views.URLParamView3.as_view())
+    path('response1/', views.Response1View.as_view()),
+
+
 
 ]
+
+# path 和 re_path选择：
+# 如果希望自己编写所有的正则表达式，选择re_path()
+# 其他都是path（）
