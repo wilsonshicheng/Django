@@ -161,4 +161,5 @@ class LoginRedirectView(View):
         # 1.处理登录逻辑
         # 2.如果用户登录成功，将用户引导到首页（重定向）
         return redirect('/index/')
+    # 或者 return redirect('http://127.0.0.1:8000/index/')
     # 注意点：重定向的网址需要加根路径：index/-----→/index/
