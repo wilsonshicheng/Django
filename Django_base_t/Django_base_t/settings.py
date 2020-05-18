@@ -49,6 +49,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 自定义中间件：[文件.类]
+    'middlewares.TestMiddleware1',
+    'middlewares.TestMiddleware2',
+
 ]
 
 ROOT_URLCONF = 'Django_base_t.urls'
