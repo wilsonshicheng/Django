@@ -25,5 +25,8 @@ register_converter(MobileConverter,'mobile')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('users.urls')),
-    path('',include('request_response.urls')),
+    # 给路由起别名include("",namespace=")
+    path('',include(('request_response.urls','request_response'),namespace='request_response')),#缺少app_name参数
+    # 注意点：如果定义了总路由的namespace，一定要记得定义app_name
+
 ]

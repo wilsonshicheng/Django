@@ -1,4 +1,4 @@
-from django.shortcuts import render ,redirect
+from django.shortcuts import render ,redirect,reverse
 from django.views import View
 from django import http
 import json
@@ -160,6 +160,14 @@ class LoginRedirectView(View):
     def post(self,request):
         # 1.处理登录逻辑
         # 2.如果用户登录成功，将用户引导到首页（重定向）
-        return redirect('/index/')
+        # return redirect('/index/') --利用reverse解决路由变化的问题
     # 或者 return redirect('http://127.0.0.1:8000/index/')
     # 注意点：重定向的网址需要加根路径：index/-----→/index/
+
+# 问题：
+#     一旦路由发生变化，那么使用该路由的所有源代码都需要变。
+# 解决方案：
+#     路由的反向解析reverse（）
+#     原理：可以动态根据路由的别名，去解析真实的地址
+#     方式：return redirect(reverse('总路由的别名：子路由的别名'))
+        return redirect(reverse('requeset_response:index'))
