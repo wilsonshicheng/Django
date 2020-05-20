@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.views import View
-from booktest.models import BookInfo,HeroInfo
+from booktest.models import BookInfo, HeroInfo
 from django import http
+
+
 # Create your views here.
 
 # ========增加数据=============
-class TestModelView1(View):
-
-    def get(self,request):
+# class TestModelView1(View):
+#
+#     def get(self, request):
         # 1.新增
         # # =======save（）方法新增========
         # book = BookInfo()
@@ -38,6 +40,35 @@ class TestModelView1(View):
         # book.save()
         # ==========update方法==========
         # 语法模型类.objects.filter(条件).update(属性=值)
-        BookInfo.objects.filter(id=6).update(btitle='西游记')
+        # BookInfo.objects.filter(id=6).update(btitle='西游记')
 
-        return http.HttpResponse('测试增改删')
+        # 3.删除
+        # 物理删除：
+        # BookInfo.objects.filter(id=6).delete()
+        # 逻辑删除
+        # book = BookInfo.objects.get(id=7)
+        # book.is_delete=True
+        # book.save()
+
+        # return http.HttpResponse('测试增改删')
+
+    # 4查询
+
+class TestModelView2(View):
+    def get(self,request):
+       # ======== 基本查询=======
+       # 查询自定的记录：只查询1条数据
+       # 如果只查询一条记录，优先选择get方法【默认只查询1条记录】,如果不存在会爆出DOESTNOTexist异常
+       #  book = BookInfo.objects.get(btitle='射雕英雄传')
+       #  print('删除的记录是：%s'%book.id)
+       #
+       # # 查询所有记录：
+       #  books = BookInfo.objects.all()
+       #  for x in books:
+       #     print(x)
+
+        # 查询所有记录的个数
+        count = BookInfo.objects.all().count()
+        print(count)
+
+        return http.HttpResponse('查询记录测试')
