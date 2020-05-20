@@ -34,7 +34,6 @@ urlpatterns = [
     # *****重定向 ,给子路由添加别名path（"","",name=")
     path('index/', views.IndexView.as_view(),name='index'),
     path('login_redirect/', views.IndexView.as_view()),
-
 ]
 
 # path 和 re_path选择：

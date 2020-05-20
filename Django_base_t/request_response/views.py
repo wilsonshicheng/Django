@@ -171,3 +171,7 @@ class LoginRedirectView(View):
 #     原理：可以动态根据路由的别名，去解析真实的地址
 #     方式：return redirect(reverse('总路由的别名：子路由的别名'))
         return redirect(reverse('requeset_response:index'))
+
+
+
+
