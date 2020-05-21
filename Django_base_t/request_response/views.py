@@ -172,6 +172,24 @@ class LoginRedirectView(View):
 #     方式：return redirect(reverse('总路由的别名：子路由的别名'))
         return redirect(reverse('requeset_response:index'))
 
+class TempView(View):
+    # 测试模板的定义和响应
+    # get:http://127.0.0.1:8000/temp/
+    def get(self,request):
+        # 假装处理逻辑
+
+        # 构造上下文字典（暂缓）
+        context = {
+            'subject':'python学科',
+            'hot':'人生苦短，我用python'
+        }
+        # 使用上下文渲染模板
+
+        # 响应模板：模板（html文件）
+
+        return render(request,'temp.html',context)
+
+
 
 
 
