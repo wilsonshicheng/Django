@@ -166,3 +166,17 @@ class BooksView(View):
 
         # 使用上下文字典渲染模板，并响应
         return response
+
+class TestCookieView(View):
+    # 测试渲染数据库数据 http://1227.0.0.1:8000/books
+    def get(self,request):
+        # 使用cookie辨别用户身份
+        username = request.COOKIES.get('username')
+        print(username)
+        # # 辨别COOKie身份
+        # user = 用户模型类.objects.get(username=username)
+        # if user:
+        #     # 用户是登录用户
+        # else:
+        #     # 用户未登录
+        return http.HttpResponse('测试COOKIES')

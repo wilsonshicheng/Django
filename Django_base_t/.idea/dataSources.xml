@@ -7,5 +7,13 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://121.224.4.102:3306/django_demo</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="65798325-a5eb-41fe-bfd3-88a9cdc21cd5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/Django_base_t/settings.py</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://121.224.4.102:3306/django_demo</jdbc-url>
+    </data-source>
   </component>
 </project>
