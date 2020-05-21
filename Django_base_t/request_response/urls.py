@@ -35,6 +35,7 @@ urlpatterns = [
     path('index/', views.IndexView.as_view(),name='index'),
     path('login_redirect/', views.IndexView.as_view()),
     path('temp/', views.TempView.as_view()),
+
 ]
 
 # path 和 re_path选择：

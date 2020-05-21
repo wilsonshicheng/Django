@@ -190,6 +190,3 @@ class TempView(View):
         return render(request,'temp.html',context)
 
 
-
-
-

@@ -148,3 +148,21 @@ class TestModelView3(View):
         print(book)
 
         return http.HttpResponse('练习测试')
+
+class BooksView(View):
+    # 测试渲染数据库数据 http://1227.0.0.1:8000/books
+    def get(self,request):
+        # 查询数据库数据：
+        heros = HeroInfo.objects.all()
+        books = BookInfo.objects.all()
+        # 构造上下文
+        context = {
+            'heros':heros
+        }
+        # 设置cookie：设置响应对象
+        response = render(request, 'books.html', context)
+        # 响应对象调用set_cookie()
+        response.set_cookie('username','wilson',max_age = 3600)
+
+        # 使用上下文字典渲染模板，并响应
+        return response
